@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import CounterRedux from './redux/CounterRedux.jsx'
+import UserInfoThunk from './reduxThunk/UserInfoThunk.jsx'
+import UserInfoSaga from './reduxSaga/UserInfoSaga.jsx'
+import UserInfoToolkit from './reduxToolkit/UserInfoToolkit.jsx'
+import {Provider} from 'react-redux'
+import counterStore from './redux/store.js';
+import thunkStore from './reduxThunk/store.js';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h6> Introduction of Redux</h6>
+     {/* <Provider store={counterStore}>
+        <CounterRedux/>
+      </Provider> */}
+      <Provider store={thunkStore}>
+         <UserInfoThunk/>
+      </Provider>
+     {/* <UserInfoSaga/>
+     <UserInfoToolkit/> */}
     </div>
   );
 }
